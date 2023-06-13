@@ -9,7 +9,6 @@ import { useRef } from 'react'
 export const Form = ({ addTask, deleteAllTasks, updateTask, setUpdateTask }) => {
 
   const [input, setInput] = useState('')
-
   const formdata = useRef()
 
 
@@ -17,12 +16,10 @@ export const Form = ({ addTask, deleteAllTasks, updateTask, setUpdateTask }) => 
     setInput(e.target.value)
   }
 
-
   useEffect(() => {
     if (updateTask) {
 
       formdata.current.textTask.value = updateTask.text
-
 
     }
 
@@ -38,17 +35,21 @@ export const Form = ({ addTask, deleteAllTasks, updateTask, setUpdateTask }) => 
     }
 
     if (updateTask) {
-      updateTask.text = input
-      setUpdateTask()
+      if (input !== '') {
+        updateTask.text = input
+        setUpdateTask()
+        e.target.textTask.value = ''
+        setInput('')
+
+      }
     }
 
     else {
       addTask(newTaskObject)
+      e.target.textTask.value = ''
+      setInput('')
+
     }
-
-    e.target.textTask.value = ''
-    setInput('')
-
 
 
   }
@@ -67,10 +68,8 @@ export const Form = ({ addTask, deleteAllTasks, updateTask, setUpdateTask }) => 
         onChange={changeForm}
       />
 
-      <button className='task-button'>{updateTask ? 'Update' : 'Add Task'}</button>
-      <button className='task-button-delete' onClick={deleteAllTasks}>
-        Delete all
-      </button>
+      <button className='task-button' >{updateTask ? 'Update' : 'Add Task'}</button>
+      <button className='task-button-delete' onClick={deleteAllTasks}>Delete all</button>
 
     </form>
 

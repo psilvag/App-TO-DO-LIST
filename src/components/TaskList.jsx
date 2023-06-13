@@ -3,13 +3,15 @@ import { useState } from 'react'
 import { Form } from './Form'
 import Task from './Task'
 import '../stylesSheets/TaskList.css'
+import Message from './Message'
+
 
 
 export const TaskList = () => {
 
   const [tasks, setTasks] = useState([])
   const [updateTask, setUpdateTask] = useState()
-
+  const [taskCompleted, setTaskCompleted] = useState(false)
 
   //=====CREATE A NEW TASK=====
   const addTask = newObjectTask => {
@@ -49,23 +51,15 @@ export const TaskList = () => {
     const currentTasktoEdit = tasks.find(task => task.id === id)
     if (currentTasktoEdit.completed === false) {
       setUpdateTask(currentTasktoEdit)
+
     }
     else {
-      window.alert('la tarea esta completada, no se puede editar')
+      setTaskCompleted(true)
     }
 
 
   }
-
-
-
-  const deleteAllTasks = () => {
-    setTasks([])
-  }
-
-  const saveTask = (id, newTask) => {
-    console.log(newTask);
-  }
+  const deleteAllTasks = () => { setTasks([]) }
 
   return (
     <>
@@ -77,23 +71,32 @@ export const TaskList = () => {
         setUpdateTask={setUpdateTask}
 
       />
-      <div className='task-list-container'>
-        {
-          tasks.map((task) =>
-            <Task
-              key={task.id}
-              id={task.id}
-              text={task.text}
-              completed={task.completed}
-              deletetask={deleteTask}
-              taskcomplete={taskComplete}
-              editTask={editTask}
+
+      {taskCompleted ? <Message
+        setTaskCompleted={setTaskCompleted} /> :
+        <div className='task-list-container'>
+          {
+            tasks.map((task) =>
+              <Task
+                key={task.id}
+                id={task.id}
+                text={task.text}
+                completed={task.completed}
+                deletetask={deleteTask}
+                taskcomplete={taskComplete}
+                editTask={editTask}
 
 
-            />
-          )
-        }
-      </div>
+              />
+            )
+          }
+        </div>
+      }
+
+
+
+
+
     </>
   )
 }

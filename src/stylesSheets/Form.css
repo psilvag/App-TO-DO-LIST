@@ -7,12 +7,13 @@
 
 .task-input {
   width: 350px;
-  font-size: 18px;
+  font-size: 22px;
   background-color: rgb(242, 236, 225);
   padding: 14px 32px 14px 16px;
   border-radius: 4px 0 0 4px;
   border: 2px solid black;
   border-style: none;
+  outline: none;
 }
 
 .task-button {
@@ -22,13 +23,18 @@
   border: none;
   border: 0 4px 4px 0;
   cursor: pointer;
-  background-color: #0096c7;
+  background-color: rgb(255, 49, 133);
   outline: none;
   color: #fff;
   text-transform: capitalize;
   width: 160px;
-  height: 52px;
-  cursor: pointer;
+  height: 56px;
+  border-right: 2px solid white;
+
+}
+
+.disabled-button {
+  display: none;
 }
 
 .task-button:hover {
@@ -39,17 +45,69 @@
 .task-button-delete {
   width: 150px;
   font-size: 18px;
-  background-color: #03045e;
+  background-color: rgb(255, 49, 133);
   color: white;
   padding: 10px;
   border-radius: 0 4px 4px 0;
   outline: none;
   width: 160px;
-  height: 52px;
+  height: 56px;
   border-style: none;
   cursor: pointer;
+
 }
 
 .task-button-delete:hover {
   filter: brightness(1.4);
+}
+
+/*===========RESPONSIVE===============*/
+@media (max-width:768px) {
+
+
+  .task-input {
+    width: 280px;
+
+  }
+
+  .task-button {
+    width: 100px;
+    font-size: 15px;
+  }
+
+
+  .task-button-delete {
+    width: 100px;
+    font-size: 15px;
+
+
+  }
+
+
+
+}
+
+@media (max-width:600px) {
+
+
+  .task-input {
+    width: 240px;
+
+  }
+
+  .task-button {
+    width: 80px;
+    font-size: 15px;
+  }
+
+
+  .task-button-delete {
+    width: 80px;
+    font-size: 15px;
+
+
+  }
+
+
+
 }

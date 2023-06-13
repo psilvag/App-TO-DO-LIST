@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import programacion from './imagenes/to-do-list.jpg'
+import { FaThList } from 'react-icons/fa'
 import { TaskList } from './components/TaskList'
 function App() {
 
@@ -8,10 +8,8 @@ function App() {
   return (
     <div className="App-task">
       <div className='image-container'>
-        <img
-          src={programacion}
-          className="image-app"
-        />
+        <h1>To do list</h1>
+        <FaThList style={{ fontSize: "40px" }} />
       </div>
 
 
