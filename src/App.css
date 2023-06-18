@@ -31,7 +31,7 @@ h1 {
 }
 
 .image-container {
-  width: 600px;
+  width: 40vw;
   height: 115px;
   border-radius: 10px;
   margin: 20px;
@@ -41,7 +41,8 @@ h1 {
   background-color: #2B0D57;
   color: white;
   box-shadow: 2px 2px 1px 1px rgb(210, 181, 221);
-
+ 
+  
 }
 
 .image-container h1 {
@@ -50,7 +51,7 @@ h1 {
 
 
 .principal-list-task {
-  width: 600px;
+  width: 40vw;
   min-height: 500px;
   background-color: rgb(43, 13, 87);
   padding: 25px;
@@ -58,6 +59,7 @@ h1 {
   border-radius: 25px;
   opacity: 0.9;
   box-shadow: 2px 2px 1px 1px rgb(210, 181, 221);
+ 
 }
 
 .principal-list-task h1 {
@@ -67,41 +69,18 @@ h1 {
 
 
 /*===========RESPONSIVE===============*/
+
+
+
+
 @media (max-width:992px) {
 
-  .image-container h1 {
-    font-size: 45px;
-  }
-
-}
-
-@media (max-width:768px) {
   .image-container {
-    width: 500px;
+    width: 60%;
   }
-
-  .image-container h1 {
-    font-size: 45px;
-  }
-
-  .principal-list-task {
-    width: 500px;
+  .principal-list-task{
+    width: 60%;
   }
 }
 
 
-
-@media (max-width:600px) {
-  .image-container {
-    width: 450px;
-  }
-
-  .image-container h1 {
-    font-size: 45px;
-  }
-
-  .principal-list-task {
-    width: 450px;
-  }
-
-}

@@ -5,7 +5,9 @@ import { v4 as uuidv4 } from 'uuid'
 import { useEffect } from 'react'
 import { useRef } from 'react'
 
-
+import {AiOutlineFileAdd} from 'react-icons/ai'
+import {AiOutlineEdit} from 'react-icons/ai'
+import {AiOutlineDelete} from 'react-icons/ai'
 export const Form = ({ addTask, deleteAllTasks, updateTask, setUpdateTask }) => {
 
   const [input, setInput] = useState('')
@@ -68,8 +70,8 @@ export const Form = ({ addTask, deleteAllTasks, updateTask, setUpdateTask }) => 
         onChange={changeForm}
       />
 
-      <button className='task-button' >{updateTask ? 'Update' : 'Add Task'}</button>
-      <button className='task-button-delete' onClick={deleteAllTasks}>Delete all</button>
+      <button className='task-button' >{updateTask ? <AiOutlineEdit className='edit-icon'/> : <AiOutlineFileAdd className='add-icon'/>}</button>
+      <button className='task-button-delete' onClick={deleteAllTasks}><AiOutlineDelete className='delete-icon'/></button>
 
     </form>
 

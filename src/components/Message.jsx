@@ -13,10 +13,12 @@ const Message = ({ setTaskCompleted }) => {
 
     return (
         <div className={close ? 'message-none' : 'message'}>
-            <i><AiFillCloseCircle
-                className='close-message-icon'
-                onClick={handleCloseMessage} /></i>
             <p>This task is already finished, it cannot be edited.</p>
+            <i className='close-button'><AiFillCloseCircle
+                className='close-message-icon'
+                onClick={handleCloseMessage} />
+            </i>
+            
         </div>
     )
 }
